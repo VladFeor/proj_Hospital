@@ -1,0 +1,20 @@
+<h1 class="center">Log in</h1>
+
+<form  action="/login" class="" method="POST">
+    <div class="input-field col s6 ">
+          <input id="username" name="username"  type="text" class="validate" required>
+          <label for="username">Name</label>
+          <span class="helper-text" data-error="Write name" ></span>
+    </div>
+
+    <div class="input-field col s6">
+          <input id="password" name="password" type="password" class="validate" required min="1">
+          <label for="password">Password</label>
+          <span class="helper-text" data-error="Write password" ></span>
+    </div>
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">Log in
+      <i class="material-icons right"></i>
+    </button>
+</form>
+

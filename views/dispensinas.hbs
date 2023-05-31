@@ -1,0 +1,81 @@
+<h1>Dispensina</h1>
+<form action="/dispensinaSearch" method="get">
+  <input type="text" name="q">
+  <button class="btn_del block" type="submit">Search by Name</button>
+  <a  href="/dispensinas" type="submit">Reset search</a>
+</form>
+{{#if finalDis.length}}
+{{#each finalDis}}
+<div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content">
+          <h5>Illnes: {{ illness}}</h5>
+          <h5>Main Doctor: {{ mainDoctor}}</h5>
+          <h5>Doctor: {{ doctor}}</h5>
+          <h5>Pill: {{ pill}}</h5>
+           <h5>Data of dispansina: {{formatDateTime dataOfDispansina}}</h5>
+          
+        </div>
+        <form  class="card-action" method="POST" action="/dispensina/{{id}}/delete">
+        <button class="btn_del" type="submit"> Delete Dispensina</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/each}}
+{{else}}
+<h5>There are no dispensinas yet.</h5>
+{{/if}}
+
+<div class="row addblock"> 
+    <div class="col s6 offset-s3 ">
+      <div class="card w500">
+        <div class="card-content ">
+          <h2>Add dispensina</h2>
+  <div class="row">
+    <form action="/dispensinas" method="POST" class="col s12">
+       
+      <div class="row">
+        <label>Illnes</label>
+        <select  name="illnesId" class="browser-default" class="input-field col s12 validate" >
+            <option value="" disabled selected>Choose illnes</option>
+            {{#each illnes}}
+                <option value={{id}} >{{patient}}</option>
+            {{/each }}
+        </select>
+      </div>
+      <div class="row">
+        <label>Illnes</label>
+        <select  name="doctorId" class="browser-default" class="input-field col s12 validate" >
+            <option value="" disabled selected>Choose doctor</option>
+            {{#each doctors}}
+                <option value={{dataValues.id}} >{{dataValues.name}} {{dataValues.surname}}</option>
+            {{/each }}
+        </select>
+      </div>
+      <div class="row">
+        <label>Pill</label>
+        <select  name="pillId" class="browser-default" class="input-field col s12 validate" >
+            <option value="" disabled selected>Choose pill</option>
+            {{#each pills}}
+                <option value={{dataValues.id}} >{{dataValues.name}}</option>
+            {{/each }}
+        </select>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="dataOfDispansina" name="dataOfDispansina"  placeholder="  "type="datetime-local" class="validate">
+          <label for="dataOfDispansina" class="active">Data of dispansina</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Add dispensina
+      <i class="material-icons right"></i>
+    </button>
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,42 @@
+.nav-wrapper{
+    padding: 0 2rem;
+}
+select{
+    border: 1px solid #9e9e9e;
+}
+.addblock{
+    position: absolute;
+    top: 237px;
+    right: 270px;
+    width: 400px;
+    
+}
+.w500{
+    width: 500px;
+    border: 1px solid #303030;
+}
+.pointer{
+    cursor: pointer;
+}
+.btn_del{
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    color: goldenrod;
+    cursor: pointer;
+}
+.block{
+    display: block;
+}
+form > a{
+    margin-left: 5px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.card .card-content p {
+    margin-bottom: 25px;
+}
+p{
+    margin: 0;
+}

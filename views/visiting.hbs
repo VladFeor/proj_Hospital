@@ -1,0 +1,92 @@
+<h1>Visiting</h1>
+{{#if finishVisiting.length}}
+{{#each finishVisiting}}
+<div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content">
+          <h5 >Patient: {{ patient }} </h5>
+          <h5 >Doctor: {{  doctor}} </h5>
+          {{#if isCompleted}}
+            <h5 >Data: {{formatDate  dataOfVisit}} </h5>
+            <h5 >Reson: {{ disease}} </h5>
+          {{else}}
+            <h5 >Booking on : {{ formatDate dataOfVisit}} </h5>
+          {{/if}}
+          
+        </div>
+        <form  class="card-action" method="POST" action="/visit/{{id}}/delete">
+        <button class="btn_del" type="submit"> Delete Visit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/each}}
+{{else}}
+<h5>There are no visiting here yet</h5>
+{{/if}}
+
+<div class="row addblock"> 
+    <div class="col s6 offset-s3 ">
+      <div class="card w500">
+        <div class="card-content ">
+          <h2>Add visiting</h2>
+  <div class="row">
+    <form action="/visiting" method="POST" class="col s12">
+      <div class="row">
+        <label>Doctor</label>
+        <select  name="patientId" class="browser-default" class="input-field col s12 validate" >
+            <option value="" disabled selected>Choose patient</option>
+            {{#each patients}}
+                <option value={{dataValues.id}} >{{dataValues.name}}  {{dataValues.surname}}</option>
+            {{/each }}
+        </select>
+      </div>
+      <div class="row">
+        <label>Doctor</label>
+        <select  name="doctorId" class="browser-default" class="input-field col s12 validate" >
+            <option value="" disabled selected>Choose doctor</option>
+            {{#each doctors}}
+                <option value={{dataValues.id}} >{{dataValues.name}}  {{dataValues.surname}}</option>
+            {{/each }}
+        </select>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="dataOfVisit" name="dataOfVisit"  placeholder="  "type="date" class="validate">
+          <label for="dataOfVisit" class="active">Data Visit</label>
+        </div>
+      </div>
+      <div class="row">
+        <label>Disease</label>
+        <select  name="disease" class="browser-default" class="input-field col s12 validate" >
+          <option value="" disabled selected>Choose disease</option>
+          <option value="Pain and inflammation" >Pain and inflammation</option>
+          <option value="Infections" >Infections</option>
+          <option value="Mental disorders" >Mental disorders</option>
+          <option value="Cardiovascular diseases" >Cardiovascular diseases</option>
+          <option value="Various other diseases and conditions" >Various other diseases and conditions</option>
+
+        </select>
+      </div>
+      <p class="row">
+      <label>
+        <input id="isIllnes" name="isIllnes" type="checkbox" />
+        <span>Illnes</span>
+      </label>
+      </p>
+      
+      <button class="btn waves-effect waves-light" type="submit" name="action">Add visiting
+      <i class="material-icons right"></i>
+    </button>
+
+   
+
+
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+

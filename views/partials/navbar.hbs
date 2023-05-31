@@ -1,0 +1,57 @@
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Hospital</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        {{#if isHome}}
+        <li class="active"><a  href="/">Main</a></li>
+        {{else}}
+        <li><a href="/">Main</a></li>
+        {{/if}}
+
+        {{#if isPatients}}
+        <li class="active"><a  href="/patients">Patient</a></li>
+        {{else}}
+        <li><a href="/patients">Patient</a></li>
+        {{/if}}
+
+        {{#if isPills}}
+        <li class="active"><a  href="/pills">Pills</a></li>
+        {{else}}
+        <li><a href="/pills">Pills</a></li>
+        {{/if}}
+
+
+        {{#if isDoctors}}
+        <li class="active"><a  href="/doctors">Doctors</a></li>
+        {{else}}
+        <li><a href="/doctors">Doctors</a></li>
+        {{/if}}
+
+        {{#if isDoctors}}
+        <li class="active"><a  href="/dispensinas">Doctors</a></li>
+        {{else}}
+        <li><a href="/dispensinas">Dispensinas</a></li>
+        {{/if}}
+
+        {{#if isVisiting}}
+        <li class="active"><a  href="/visiting">Pills</a></li>
+        {{else}}
+        <li><a href="/visiting">Visiting</a></li>
+        {{/if}}
+
+       {{#if isVisiting}}
+        <li class="active"><a  href="/illness">Pills</a></li>
+        {{else}}
+        <li><a href="/illness">Illness</a></li>
+        {{/if}}
+
+         {{#if isReg}}
+        <li class="active"><a  href="/registration">Registration</a></li>
+        {{else}}
+        <li><a href="/registration">Registration</a></li>
+        {{/if}}
+
+      </ul>
+    </div>
+  </nav>

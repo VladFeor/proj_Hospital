@@ -1,0 +1,103 @@
+<h1>Patients</h1>
+<form action="/patientSearch" method="get">
+  <input type="text" name="q">
+  <button class="btn_del block" type="submit">Search by Name</button>
+  <a  href="/patients" type="submit">Reset search</a>
+</form>
+{{#if patients.length}}
+{{#each patients}}
+<div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content">
+          <h4 >{{dataValues.name}} {{dataValues.surname}}</h4>
+          <h5 >Rank: {{dataValues.rank}} || Sex: {{dataValues.gender}}</h5>
+          <h5 >{{formatDate dataValues.dataOfBirth}} || Address: {{dataValues.address}}</h5>
+          <h5>Phone: +380{{dataValues.numberPhone}}</h5>
+        </div>
+        <form  class="card-action" method="POST" action="/patient/{{dataValues.id}}/delete">
+        <button class="btn_del" type="submit"> Delete Patient</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/each}}
+{{else}}
+<h5>Пацієнтів нема</h5>
+{{/if}}
+
+<div class="row addblock"> 
+    <div class="col s6 offset-s3 ">
+      <div class="card w500">
+        <div class="card-content ">
+          <h2>Add patient</h2>
+  <div class="row">
+    <form action="/patients" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input  name="name" id="first_name" placeholder="  " type="text" class="validate">
+          <label for="first_name" class="active">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name"  name="surname"  placeholder="  " type="text" class="validate">
+          <label for="last_name" class="active">Last Name</label>
+        </div>
+      </div>
+       
+      <div class="row">
+        <label>Rank</label>
+        <select  name="rank" class="browser-default" class="input-field col s12 validate" >
+          <option value="" disabled selected>Choose your rank</option>
+          <option value="Private (PV1)" >Private (PV1)</option>
+          <option value="Private (PV2)" >Private (PV2)</option>
+          <option value="Private First Class" >Private First Class</option>
+          <option value="Specialist" >Specialist</option>
+          <option value="Lieutenant" >Lieutenant</option>
+          <option value="Captain" >Captain</option>
+          <option value="Major" >Major</option>
+          <option value="Brigadier General" >Brigadier General</option>
+          <option value="Major General " >Major General </option>
+          <option value="General" >General</option>
+
+        </select>
+      </div>
+      <div class="row">
+         <label>Gender</label>
+        <select  name="gender" class="browser-default"  class="input-field col s12 validate" >
+          <option value="" disabled selected>Choose your gender</option>
+          <option value="Male" >Male</option>
+          <option value="Female" >Female</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="dataOfBirth" name="dataOfBirth"  placeholder="  "type="date" class="validate">
+          <label for="dataOfBirth" class="active">Data Birth</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="address"  name="address"   placeholder="  "type="text" class="validate">
+          <label for="address" class="active">Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="numberPhone"  name="numberPhone" placeholder="  "  type="number" class="validate">
+          <label for="numberPhone" class="active">Phone format +380 *** *** ***</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Add patient
+      <i class="material-icons right"></i>
+    </button>
+
+   
+
+
+    </form>
+  </div>
+</div>
+</div>
+</div>
+
+

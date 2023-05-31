@@ -1,0 +1,32 @@
+<h1>Illness</h1>
+<form action="/illnesSearch" method="get">
+  <input type="text" name="q">
+  <button class="btn_del block" type="submit">Search by Name</button>
+  <a  href="/illness" type="submit">Reset search</a>
+</form>
+{{#if finishIllness.length}}
+{{#each finishIllness}}
+<div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content">
+          <h5 >Patient: {{ patient }} </h5>
+          <h5 >Doctor: {{  doctor}} </h5>
+          <h5 >Reson: {{ disease}}  </h5>
+        </div>
+        <form  class="card-action" method="POST" action="/illnes/{{ id }}/delete">
+        <button class="btn_del" type="submit"> Delete Illness</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/each}}
+{{else}}
+<h5>There are no illness here yet</h5>
+{{/if}}
+
+
+</div>
+</div>
+
+
